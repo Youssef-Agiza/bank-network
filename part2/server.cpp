@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <string>
 #include <iostream>
+#include <arpa/inet.h>
 #include <thread>
 
 #define PORT 8080
@@ -62,7 +63,7 @@ int main(int argc, char const *argv[])
 		emit_error("setsockopt");
 
 	address.sin_family = AF_INET;
-	address.sin_addr.s_addr = INADDR_ANY;
+	address.sin_addr.s_addr = inet_addr("10.40.32.181");
 	address.sin_port = htons(PORT);
 
 	// Forcefully attaching socket to the port 8080
